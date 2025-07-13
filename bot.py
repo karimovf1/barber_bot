@@ -1,24 +1,24 @@
-from telegram import Update
-from telegram.ext import Application, CommandHandler, ContextTypes
-import os
+from telegram import Update, ReplyKeyboardMarkup
+from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-TOKEN = os.getenv("BOT_TOKEN")
+BOT_TOKEN = "7683754796:AAFsefo83v8AKsnB9cu1_eB-HB7LLoe83gs"
+
+def get_main_menu():
+    return ReplyKeyboardMarkup(
+        [
+            ["👤 Shaxsiy kabinet", "✂️ Xizmatlar"],
+            ["📅 Bandlovni bekor qilish", "🎁 Cashback"]
+        ],
+        resize_keyboard=True
+    )
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
-        "👋 Salom, xush kelibsiz!\n"
-        "Bu — Barber Shaxzod bot.\n\n"
-        "✂️ Soch oldirishga yozilishingiz,\n"
-        "💰 Keshbek olishingiz,\n"
-        "👥 Do‘stlarni taklif qilishingiz mumkin.\n\n"
-        "Boshlash uchun menyudan tanlang."
+        "Assalomu alaykum! 'Barber Shaxzod' botiga xush kelibsiz.\nBuyruqlardan birini tanlang 👇",
+        reply_markup=get_main_menu()
     )
 
-def main():
-    app = Application.builder().token(TOKEN).build()
-    app.add_handler(CommandHandler("start", start))
-    print("✅ Bot ishga tushdi!")
-    app.run_polling()
-
 if __name__ == "__main__":
-    main()
+    app = ApplicationBuilder().token(BOT_TOKEN).build()
+    app.add_handler(CommandHandler("start", start))
+    app.run_polling()
