@@ -1,7 +1,6 @@
 from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-BOT_TOKEN = "7683754796:AAFsefo83v8AKsnB9cu1_eB-HB7LLoe83gs"
 
 def get_main_menu():
     return ReplyKeyboardMarkup(
