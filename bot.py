@@ -23,7 +23,7 @@ async def show_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
 if __name__ == "__main__":
-    app = ApplicationBuilder().token(TOKEN).build()
+    app = ApplicationBuilder().token("7683754796:AAFsefo83v8AKsnB9cu1_eB-HB7LLoe83gs").build()
 
     # Faqat "Menu" tugmasidan kelgan matnlar
     app.add_handler(MessageHandler(filters.TEXT & filters.Regex("^Menu$"), show_menu))
